@@ -4,7 +4,7 @@
 systemctl start docker
 
 # build the image out of the container
-docker build -t noamapp
+docker build -t noamapp .
 
 # remove all past containers
 docker rm $(docker ps -a -q)
