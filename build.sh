@@ -3,11 +3,8 @@
 # make sure docker is running
 systemctl start docker
 
-# build the image out of the container
-docker build -t noamapp . --no-cache
-
 # remove all past containers
 docker rm $(docker ps -a -q)
 
 # run this shit
-docker run -dit --name app -p 80:80 --privileged noamapp
+docker run -it --rm -d -p 80:80 --name web -v /var/lib/jenkins/workspace/new_cicd/html:/usr/share/nginx/html nginx
